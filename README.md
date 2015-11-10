@@ -17,4 +17,4 @@ Last command's exit code and current time
 #### Acknowledgments
 This theme is based on [scorphish](https://github.com/oh-my-fish/theme-scorphish), many thanks to the author <(_ _)>
 
-I hope it will counteract your irritation.
+I hope it will counteract my irritation.
