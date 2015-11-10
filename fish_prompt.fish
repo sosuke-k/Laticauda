@@ -15,6 +15,11 @@ function _prompt_rubies -a sep_color -a ruby_color -d 'Display current Ruby (rvm
   echo -n -s $sep_color '|' $ruby_color $ruby_version
 end
 
+function _prompt_pyenv -a sep_color -a pyenv_color -d 'Display current python (pyenv)'
+  set virtual_name (pyenv version-name)
+  echo -n -s $sep_color '|' $pyenv_color $virtual_name
+end
+
 function _prompt_virtualfish -a sep_color -a venv_color -d "Display activated virtual environment (only for virtualfish, virtualenv's activate.fish changes prompt by itself)"
   [ "$theme_display_virtualenv" = 'no' -o -z "$VIRTUAL_ENV" ]; and return
   echo -n -s $sep_color '|' $venv_color (basename "$VIRTUAL_ENV")
@@ -79,9 +84,11 @@ function fish_prompt
   set_color -o cyan
   printf '%s' (prompt_pwd)
 
-  _prompt_rubies $gray $red
+  # _prompt_rubies $gray $red
 
-  _prompt_virtualfish $gray $blue
+  # _prompt_virtualfish $gray $blue
+
+  _prompt_pyenv $gray $blue
 
   set_color -o 666
   if set -q SCORPHISH_GIT_INFO_ON_FIRST_LINE
